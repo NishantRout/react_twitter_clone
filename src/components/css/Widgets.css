@@ -1,5 +1,5 @@
 .widgets {
-    flex: 0.3;
+    flex: 0.25;
 }
 
 @media (max-width: 990px) {
