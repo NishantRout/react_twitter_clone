@@ -1,6 +1,7 @@
 import { Avatar } from '@material-ui/core';
 import { ChatBubbleOutline, FavoriteBorder, Publish, Repeat, VerifiedUser } from '@material-ui/icons';
 import React from 'react';
+import './css/Post.css';
 
 function Post() {
     return (
@@ -14,8 +15,11 @@ function Post() {
                 <div className="post__header">
                     <div className="post__headerText">
                         <h3>
-                            Perfect Shades <span>
+                            Perfect Shades <span
+                                className="post__headerSpecial"
+                            >
                                 <VerifiedUser className="post__badge" />
+                                @nishant_rout
                             </span>
                         </h3>
                     </div>
