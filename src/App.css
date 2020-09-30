@@ -15,10 +15,3 @@ body {
 .app__mob {
     display: none;
 }
-
-@media (max-width: 990px) {
-    .app__mob {
-        display: flex;
-        flex-direction: column;
-    }
-}
