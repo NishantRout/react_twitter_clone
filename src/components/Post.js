@@ -2,8 +2,9 @@ import { Avatar } from '@material-ui/core';
 import { ChatBubbleOutline, FavoriteBorder, Publish, Repeat, VerifiedUser } from '@material-ui/icons';
 import React from 'react';
 import './css/Post.css';
+import Hashtags from 'react-highlight-hashtags';
 
-function Post() {
+function Post({ displayName, username, verified, text, image, avatar }) {
     return (
         <div className="post">
             <div className="post__avatar">
@@ -24,7 +25,14 @@ function Post() {
                         </h3>
                     </div>
                     <div className="post__headerDescription">
-                        <p>The next video of HTML5 tutorial series is here. Make sure to subscribe to our channel!!</p>
+                        <Hashtags>
+                            In this video of HTML5 tutorial, we'll talk about the image tag, it’s attributes and how to use an image as a link.
+                            Stay tuned for more awesome videos!
+
+                            🔗 https://youtu.be/UZoxdf-v0dA
+
+                            #html #HTML5 #frontend #FrontEndDevelopment #webdev #webdesign #webdevelopment #tutorial #youtube
+                        </Hashtags>
                     </div>
                 </div>
                 <img

@@ -54,3 +54,10 @@
 .post__avatar {
     padding: 20px;
 }
+
+mark {
+    background:none;
+    color: var(--twitter-color);
+    font-weight: 500;
+    cursor:pointer;
+}
