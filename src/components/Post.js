@@ -9,34 +9,29 @@ function Post({ displayName, username, verified, text, image, avatar }) {
         <div className="post">
             <div className="post__avatar">
                 <Avatar
-                    src="https://pbs.twimg.com/profile_images/1243512060564189185/SMFgwobl.png"
+                    src={avatar}
                 />
             </div>
             <div className="post__body">
                 <div className="post__header">
                     <div className="post__headerText">
                         <h3>
-                            Perfect Shades <span
+                            {displayName} <span
                                 className="post__headerSpecial"
                             >
-                                <VerifiedUser className="post__badge" />
-                                @nishant_rout
+                                {verified && <VerifiedUser className="post__badge" />}
+                                @{username}
                             </span>
                         </h3>
                     </div>
                     <div className="post__headerDescription">
                         <Hashtags>
-                            In this video of HTML5 tutorial, we'll talk about the image tag, it’s attributes and how to use an image as a link.
-                            Stay tuned for more awesome videos!
-
-                            🔗 https://youtu.be/UZoxdf-v0dA
-
-                            #html #HTML5 #frontend #FrontEndDevelopment #webdev #webdesign #webdevelopment #tutorial #youtube
+                            {text}
                         </Hashtags>
                     </div>
                 </div>
                 <img
-                    src="https://pbs.twimg.com/media/EgFpk2DUwAAQJR7.jpg"
+                    src={image}
                     alt=""
                 />
                 <div className="post__footer">
