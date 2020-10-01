@@ -1,35 +1,41 @@
-import React from 'react';
-import './css/Feed.css';
-import Post from './Post';
-import TweetBox from './TweetBox';
+import React, { useEffect, useState } from "react";
+import "./css/Feed.css";
+import Post from "./Post";
+import TweetBox from "./TweetBox";
+import db from "../config/firebase";
 
 function Feed() {
-    return (
-        <div className="feed">
-            <div className="feed__header">
-                <h2>Home</h2>
-            </div>
+  const [posts, setPosts] = useState([]);
 
-            <TweetBox />
+  useEffect(() => {
+    db.collection("posts").onSnapshot((snapshot) =>
+      setPosts(snapshot.docs.map((doc) => doc.data()))
+    );
+  }, []);
 
-            <Post
-                displayName="Perfect Shades"
-                username="perfectshades.99"
-                verified
-                text="In this video of HTML5 tutorial, we'll talk about the image tag, it’s attributes and how to use an image as a link.
-                Stay tuned for more awesome videos!
+  return (
+    <div className="feed">
+      <div className="feed__header">
+        <h2>Home</h2>
+      </div>
 
-                🔗 https://youtu.be/UZoxdf-v0dA
+      <TweetBox />
 
-                #html #HTML5 #frontend #FrontEndDevelopment #webdev #webdesign #webdevelopment #tutorial #youtube"
-                image="https://pbs.twimg.com/media/EgFpk2DUwAAQJR7.jpg"
-                avatar="https://pbs.twimg.com/profile_images/1243512060564189185/SMFgwobl.png"
-            />
-            {/* <Post />
+      {posts.map((post) => (
+        <Post
+          displayName={post.displayName}
+          username={post.username}
+          verified={post.verified}
+          text={post.text}
+          image={post.image}
+          avatar={post.avatar}
+        />
+      ))}
+      {/* <Post />
             <Post />
             <Post /> */}
-        </div>
-    )
+    </div>
+  );
 }
 
 export default Feed;
